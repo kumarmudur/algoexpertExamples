@@ -19,5 +19,20 @@ function twoNumberSum(array, targetSum) {
 	return [];
 }
 
+// Solution 2
+// O(n) time  | O(n) space
+function twoNumberSum(array, targetSum) {
+	  const nums = {};
+	  for (const num of array) {
+		  const result = targetSum - num;
+		  if (result in nums) {
+			  return [result, num];
+		  } else {
+			  nums[num] = true;
+		  }
+	  }
+	  return [];
+  }
+
 // Do not edit the line below.
 exports.twoNumberSum = twoNumberSum;
