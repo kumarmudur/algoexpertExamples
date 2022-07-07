@@ -22,17 +22,36 @@ function twoNumberSum(array, targetSum) {
 // Solution 2
 // O(n) time  | O(n) space
 function twoNumberSum(array, targetSum) {
-	  const nums = {};
-	  for (const num of array) {
-		  const result = targetSum - num;
-		  if (result in nums) {
-			  return [result, num];
-		  } else {
-			  nums[num] = true;
-		  }
-	  }
-	  return [];
-  }
+	const nums = {};
+	for (const num of array) {
+		const result = targetSum - num;
+		if (result in nums) {
+			return [result, num];
+		} else {
+			nums[num] = true;
+		}
+	}
+	return [];
+}
+
+// Solution 3
+// O(nlog(n)) time | O(1) space
+function twoNumberSum(array, targetSum) {
+	array.sort((a, b) => a - b);
+	let left = 0;
+	let right = array.length - 1;
+	while (left < right) {
+		const currentSum = array[left] + array[right];
+		if (currentSum === targetSum) { 
+			return [array[left], array[right]];
+		} else if (currentSum < targetSum) {
+			left++;
+		} else if (currentSum > targetSum) {
+			right--;
+		}
+	}
+	return [];
+}
 
 // Do not edit the line below.
 exports.twoNumberSum = twoNumberSum;
