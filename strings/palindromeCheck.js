@@ -25,6 +25,7 @@ function isPalindrome(string) {
 function isPalindrome(string) {
     let leftIdx = 0;
     let rightIdx = string.length - 1;
+    if (string.length === 0) return false;
     while (leftIdx < rightIdx) {
         if (string[leftIdx] !== string[rightIdx]) return false;
         leftIdx++;
@@ -33,4 +34,8 @@ function isPalindrome(string) {
     return true;
 }
 
+// solution 4
+function isPalindrome(string) {
+    return string.split('').reverse().join('');
+}
 
