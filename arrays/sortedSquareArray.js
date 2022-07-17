@@ -21,3 +21,25 @@ function sortedSquareArray1(array) {
     const sortedSquares = array.map(item => item * item);
     return sortedSquares.sort((a, b) => a - b);
 }
+
+// solution 3
+// O(n) time | O(n) space - where n is the length of the input array
+function sortedSquareArray3(array) {
+    const sortedSquares = new Array(array.length).fill(0);
+    let smallerValueIdx = 0;
+    let largerValueIdx = array.length - 1;
+
+    for (let idx = array.length - 1; idx >= 0 ; idx--) {
+        const smallerValue = array[smallerValueIdx];
+        const largerValue = array[largerValueIdx];
+
+        if (Math.abs(smallerValue) > Math.abs(largerValue)) {
+            sortedSquares[idx] = smallerValue * smallerValue;
+            smallerValueIdx++;
+        } else {
+            sortedSquares[idx] = largerValue * largerValue;
+            largerValueIdx--;
+        }
+    }
+    return sortedSquares;
+}
