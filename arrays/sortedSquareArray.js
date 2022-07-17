@@ -15,3 +15,9 @@ function sortedSquareArray(array) {
     sortedSquares.sort((a, b) => a - b);
     return sortedSquares;
 }
+
+// solution 2
+function sortedSquareArray1(array) {
+    const sortedSquares = array.map(item => item * item);
+    return sortedSquares.sort((a, b) => a - b);
+}
