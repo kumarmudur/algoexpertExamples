@@ -23,8 +23,8 @@ function powerSet(array) {
     if (array.length === 0) return [[]];
     let first = array[0];
     let powersetWithoutFirst = powerSet(array.slice(1));
-    let powersetWithFirst = powersetWithoutFirst?.map((set) => [first, ...set]);
+    let powersetWithFirst = powersetWithoutFirst.map((set) => [first, ...set]);
     return [...powersetWithFirst, ...powersetWithoutFirst];
 }
 
-console.log(powerSet([1, 2,, 3]));
+powerSet([1, 2, 3]);
